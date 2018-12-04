@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="zeffect.cn.imimp">
+
+    <application>
+        <activity
+            android:name=".ui.talk.ImTalkActivity"
+            android:launchMode="singleInstance"></activity>
+    </application>
+</manifest>

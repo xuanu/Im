@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+
+    <include
+        android:id="@+id/left_view_stub"
+        layout="@layout/item_left_im_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/right_view_stub"
+        layout="@layout/item_right_im_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</FrameLayout>

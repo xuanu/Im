@@ -1,0 +1,28 @@
+<resources>
+    <color name="item_message_left_text_color">#454545</color>
+    <color name="item_message_right_text_color">#ffffff</color>
+    <dimen name="item_img_size">100dp</dimen>
+    <item name="tag_first" type="id"></item>
+    <item name="tag_second" type="id"></item>
+    <item name="tag_third" type="id"></item>
+    <string name="im_pressed_to_say">按住说话</string>
+    <string name="zeffect_recordbutton_finger_up_to_cancal_send">手指上滑，取消发送</string>
+    <string name="zeffect_recordbutton_releasing_finger_to_cancal_send">松开手指，取消发送</string>
+    <string name="zeffect_recordbutton_time_too_short">时间太短</string>
+
+    <style name="recordbutton_alert_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <string name="chose_photo">选择照片</string>
+    <string name="chose_from_gallery">从相册选择</string>
+    <string name="take_photo">拍照</string>
+    <string name="im_cancel">取消</string>
+    <string name="receive_msg">收到一条消息</string>
+    <string name="voice_msg">语音消息</string>
+    <string name="img_msg">图片消息</string>
+</resources>

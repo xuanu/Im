@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/at_bottom_ll"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_alignParentBottom="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageButton
+        android:id="@+id/at_take_photo_btn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:src="@drawable/im_talk_photo_selector" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/at_text_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <EditText
+                android:id="@+id/at_edit_et"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/im_talk_edit_seletor"
+                android:imeOptions="actionSend"
+                android:maxLines="6"
+                android:singleLine="true"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/at_send_btn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:gravity="center"
+                android:src="@drawable/im_talk_send_selector"
+                android:visibility="gone" />
+
+            <ImageButton
+                android:id="@+id/at_voice_btn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:src="@drawable/im_talk_voice_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/at_voice_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="invisible">
+
+            <qimonjy.cn.imui.views.RecordButton
+                android:id="@+id/at_record_view"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/im_talk_edit_normal"
+                android:padding="10dp"
+                android:text="@string/im_pressed_to_say"
+                android:textColor="#b9b9b9"
+                android:textSize="12sp" />
+
+            <ImageButton
+                android:id="@+id/at_keybroad_btn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:src="@drawable/im_talk_keybroad_selector" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

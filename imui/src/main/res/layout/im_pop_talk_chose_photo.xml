@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/im_white_background_bottom_gray_line"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/im_white_background_bottom_gray_line"
+        android:gravity="center"
+        android:text="@string/chose_photo"
+        android:textColor="#8d8d8d"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/ptcp_to_takephoto_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/im_white_background_bottom_gray_line"
+        android:gravity="center"
+        android:text="@string/take_photo"
+        android:textColor="#2083ff" />
+
+    <Button
+        android:id="@+id/ptcp_to_gally_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/im_white_background_bottom_gray_line"
+        android:gravity="center"
+        android:text="@string/chose_from_gallery"
+        android:textColor="#2083ff" />
+
+    <Button
+        android:id="@+id/ptcp_to_cancel_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/im_white_background_bottom_gray_line"
+        android:gravity="center"
+        android:text="@string/im_cancel"
+        android:textColor="#1f82ff"
+        android:textStyle="bold" />
+
+</LinearLayout>

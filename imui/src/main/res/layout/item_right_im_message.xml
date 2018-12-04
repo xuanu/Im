@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+
+    <FrameLayout
+        android:id="@+id/im_send_again_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/im_right_message"
+        android:gravity="center"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/item_try_loading_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/im_anim_loading" />
+
+        <ImageView
+            android:id="@+id/item_send_faile_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/im_item_message_send_faile_selector" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/im_right_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/im_right_img"
+        android:background="@drawable/im_right_message_bg"
+        android:gravity="center_vertical|right">
+
+        <include
+            android:id="@+id/txt_stub"
+            layout="@layout/item_im_txt_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <include
+            android:id="@+id/voic_layout"
+            layout="@layout/item_im_voice_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></include>
+
+        <ImageView
+            android:id="@+id/img_stub"
+            android:layout_width="@dimen/item_img_size"
+            android:layout_height="@dimen/item_img_size"
+            android:src="@drawable/im_default_headimg"></ImageView>
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/im_right_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/im_default_headimg" />
+</RelativeLayout>
