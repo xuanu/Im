@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import qimonjy.cn.imui.R;
@@ -35,6 +37,8 @@ public abstract class ImTalkFragment extends Fragment implements ImContentAction
      * @param msgModel 点击的消息
      */
     protected abstract void clickMsg(ImModel msgModel);
+
+    protected abstract void loadTalkMessage();
 
 
     private ImContentFragment contentFragment = new ImContentFragment().appendImContentAction(this);
@@ -112,6 +116,15 @@ public abstract class ImTalkFragment extends Fragment implements ImContentAction
         clickMsg(imModel);
     }
 
+    @Override
+    public void loadMessage() {
+        loadTalkMessage();
+    }
+
+    public final void finishRefresh() {
+        if (contentFragment != null) contentFragment.finishRefresh();
+    }
+
     /***
      * 通知某条消息变化
      * @param uuid
@@ -133,6 +146,13 @@ public abstract class ImTalkFragment extends Fragment implements ImContentAction
         if (contentFragment != null) contentFragment.addMsgs(msgModels);
     }
 
+    public final void addMsgsToFront(List<ImModel> msgModels) {
+        if (msgModels == null || msgModels.isEmpty()) return;
+        if (contentFragment != null) {
+            Collections.reverse(msgModels);
+            contentFragment.addMsgs(msgModels);
+        }
+    }
 
     public final void scroll() {
         if (contentFragment != null) contentFragment.scroll();

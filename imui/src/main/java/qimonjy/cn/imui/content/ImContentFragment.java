@@ -12,13 +12,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.liaoinstan.springview.container.DefaultHeader;
+import com.liaoinstan.springview.widget.SpringView;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import qimonjy.cn.imui.R;
 import zeffect.cn.imbase.bean.message.ImModel;
 
-public final class ImContentFragment extends Fragment {
-
+public final class ImContentFragment extends Fragment implements SpringView.OnFreshListener {
+    private SpringView springView;
     private RecyclerView imRecyclerView;
     private List<ImModel> imModels = new ArrayList<>();
     private ImContentAdapter contentAdapter;
@@ -45,15 +49,17 @@ public final class ImContentFragment extends Fragment {
     @Override
     public final View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (imRecyclerView == null) {
-            imRecyclerView = new RecyclerView(getContext());
+            springView = (SpringView) inflater.inflate(R.layout.imui_talk_layout, container, false);
+            springView.setHeader(new DefaultHeader(getContext()));
+            springView.setListener(this);
+            imRecyclerView = (RecyclerView) springView.findViewById(R.id.im_recy);
             imRecyclerView.setHasFixedSize(true);
             imRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            imRecyclerView.setBackgroundColor(Color.parseColor("#f0f4f9"));
             contentAdapter = new ImContentAdapter(getActivity(), imModels);
             contentAdapter.appendImContentAction(imContentAction);
             imRecyclerView.setAdapter(contentAdapter);
         }
-        return imRecyclerView;
+        return springView;
     }
 
 
@@ -132,5 +138,23 @@ public final class ImContentFragment extends Fragment {
         } else {
             mRecyclerView.smoothScrollToPosition(position);
         }
+    }
+
+    private int offset = 0;
+
+    @Override
+    public void onRefresh() {
+        if (imContentAction != null) {
+            imContentAction.loadMessage();
+        }
+    }
+
+    public void finishRefresh() {
+        if (springView != null) springView.onFinishFreshAndLoad();
+    }
+
+    @Override
+    public void onLoadmore() {
+
     }
 }

@@ -1,5 +1,7 @@
 package zeffect.cn.imimp.ui.talk;
 
+import android.content.Context;
+
 import java.util.Map;
 
 import qimonjy.cn.imui.talk.ImTalkFragment;
@@ -9,6 +11,7 @@ import zeffect.cn.imbase.bean.userinfo.ImUserInfo;
 import zeffect.cn.imimp.ImAction;
 import zeffect.cn.imimp.ImImp;
 import zeffect.cn.imimp.action.BaseCallback;
+import zeffect.cn.imimp.utils.DoAsync;
 
 public class ImTalkImpFragment extends ImTalkFragment {
 
@@ -29,7 +32,7 @@ public class ImTalkImpFragment extends ImTalkFragment {
     protected final void sendMsg(final ImModel msgModel) {
         ImImp.getInstance().sendMessage(msgModel, new BaseCallback() {
             @Override
-            public void callback(int code, Map<String,Object> data) {
+            public void callback(int code, Map<String, Object> data) {
                 notifiMsg(msgModel.getMsgId(), code == ImAction.SUCCESS ? ImModel.SendStatus.STATUS_OK : ImModel.SendStatus.STATUS_FAILE);
             }
         });
@@ -38,6 +41,24 @@ public class ImTalkImpFragment extends ImTalkFragment {
     @Override
     protected void clickMsg(ImModel msgModel) {
         ImImp.getInstance().clickMessage(msgModel);
+    }
+
+    private int offset = 0;
+
+    @Override
+    protected void loadTalkMessage() {
+        new DoAsync<Void, Void, Void>(getActivity()) {
+            @Override
+            protected Void doInBackground(Context pTarget, Void... voids) throws Exception {
+                return null;// TODO: 2018/12/17 需要实现
+            }
+
+            @Override
+            protected void onPostExecute(Context pTarget, Void pResult) throws Exception {
+                super.onPostExecute(pTarget, pResult);
+                finishRefresh();
+            }
+        }.execute();
     }
 
     @Override
