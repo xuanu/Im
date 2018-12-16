@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import module.qimonjy.cn.accountlibrary.userdata.refactor.UserDataManager;
 import zeffect.cn.imimp.ui.converstation.ImConverImpFragment;
 
 public class MainActivity extends AppCompatActivity {

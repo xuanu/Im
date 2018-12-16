@@ -29,6 +29,14 @@ public abstract class ImTalkFragment extends Fragment implements ImContentAction
 
     protected abstract void sendMsg(ImModel msgModel);
 
+    /**
+     * 点击的聊天信息，因为极光的图片下载逻辑不一样。所有只能交给外部实现，逻辑上有点问题，先这样吧。
+     *
+     * @param msgModel 点击的消息
+     */
+    protected abstract void clickMsg(ImModel msgModel);
+
+
     private ImContentFragment contentFragment = new ImContentFragment().appendImContentAction(this);
     private ImBottomFragment bottomFragment = new ImBottomFragment().appendImBottomListener(this);
     private View rootView;
@@ -99,6 +107,10 @@ public abstract class ImTalkFragment extends Fragment implements ImContentAction
         sendMsg(imModel);
     }
 
+    @Override
+    public void clickItemMessage(ImModel imModel) {
+        clickMsg(imModel);
+    }
 
     /***
      * 通知某条消息变化

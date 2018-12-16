@@ -50,7 +50,7 @@ public class ImContentAdapter extends RecyclerView.Adapter<ImContentAdapter.Talk
 
     @Override
     public void onBindViewHolder(@NonNull TalkViewHolder holder, int position) {
-        ImModel imModel = models.get(position);
+        final ImModel imModel = models.get(position);
         ImModel.MsgType msgType = imModel.getMsgType();
         boolean isLeft = imModel.getMsgStatus() == ImModel.MsgStatus.MSG_RECEVIE;
         initStub(holder, isLeft, msgType);
@@ -123,6 +123,12 @@ public class ImContentAdapter extends RecyclerView.Adapter<ImContentAdapter.Talk
             }
 
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (imContentAction != null) imContentAction.clickItemMessage(imModel);
+            }
+        });
     }
 
 

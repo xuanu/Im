@@ -137,6 +137,11 @@ public class JGIMimp extends ImAction {
     }
 
     @Override
+    public void clickMessage(ImModel msg) {
+        // TODO: 2018/12/16 未实现，需要实现
+    }
+
+    @Override
     public void sendMessage(ImModel imModel, final BaseCallback callback) {
         Message sendMsg = makeMsg(imModel);
         if (sendMsg != null) {

@@ -1,5 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="qimonjy.cn.qmim">
-
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-</manifest>

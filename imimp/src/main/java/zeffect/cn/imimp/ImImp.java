@@ -108,6 +108,11 @@ public final class ImImp<T extends ImAction> extends ImAction {
         impImImp.addGroupMembers(groupId, users, callback);
     }
 
+    @Override
+    public void clickMessage(ImModel msg) {
+        impImImp.clickMessage(msg);
+    }
+
 
     @Override
     public void sendMessage(ImModel msg, BaseCallback callback) {

@@ -36,6 +36,11 @@ public class ImTalkImpFragment extends ImTalkFragment {
     }
 
     @Override
+    protected void clickMsg(ImModel msgModel) {
+        ImImp.getInstance().clickMessage(msgModel);
+    }
+
+    @Override
     protected ImUserInfo impMyUser() {
         return ImImp.getInstance().getMyUserInfo();
     }
@@ -50,5 +55,6 @@ public class ImTalkImpFragment extends ImTalkFragment {
     protected ImModel.ConversationType impConverType() {
         return conversationType;
     }
+
 
 }

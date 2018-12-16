@@ -1,8 +1,6 @@
 package zeffect.cn.im;
 
 import android.app.Application;
-
-import module.qimonjy.cn.accountlibrary.userdata.refactor.UserDataManager;
 import zeffect.cn.imimp.ImImp;
 
 public class MyApp extends Application {
@@ -11,6 +9,5 @@ public class MyApp extends Application {
         super.onCreate();
         ImImp.getInstance().initImp(new JGIMimp());
         ImImp.getInstance().init(this);
-        UserDataManager.getInstance().init(this);
     }
 }

@@ -30,6 +30,8 @@ public abstract class ImAction {
 
     public abstract void addGroupMembers(String groupId, List<String> users, BaseCallback callback);
 
+    public abstract void clickMessage(ImModel msg);
+
     public abstract void sendMessage(ImModel msg, BaseCallback callback);
 
     public abstract List<ImConversation> getConversations();
