@@ -62,6 +62,9 @@ public final class ImContentFragment extends Fragment implements SpringView.OnFr
         return springView;
     }
 
+    public final void setSpringEnable(boolean enable) {
+        if (springView != null) springView.setEnable(enable);
+    }
 
     public final void addMsg(ImModel imModel) {
         if (imModel != null) {

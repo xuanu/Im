@@ -113,6 +113,11 @@ public final class ImImp<T extends ImAction> extends ImAction {
         impImImp.clickMessage(msg);
     }
 
+    @Override
+    public List<ImModel> loadMessage(String toUser, int offset, ImModel.ConversationType conversationType) {
+        return impImImp.loadMessage(toUser, offset, conversationType);
+    }
+
 
     @Override
     public void sendMessage(ImModel msg, BaseCallback callback) {

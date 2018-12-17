@@ -142,6 +142,21 @@ public class JGIMimp extends ImAction {
     }
 
     @Override
+    public List<ImModel> loadMessage(String toUser, int offset, ImModel.ConversationType conversationType) {
+        Conversation conversation = null;
+        if (conversationType == ImModel.ConversationType.SINGLE) {
+            conversation = Conversation.createSingleConversation(toUser, "");
+        } else if (conversationType == ImModel.ConversationType.GROUP) {
+            conversation = JMessageClient.getGroupConversation(Long.parseLong(toUser));
+        }
+        if (conversation != null) {
+            List<Message> msgs = conversation.getMessagesFromNewest(offset, 20);
+            return msg2Ims(msgs);
+        }
+        return Collections.emptyList();
+    }
+
+    @Override
     public void sendMessage(ImModel imModel, final BaseCallback callback) {
         Message sendMsg = makeMsg(imModel);
         if (sendMsg != null) {

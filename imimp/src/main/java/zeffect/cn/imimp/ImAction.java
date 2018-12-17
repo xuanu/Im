@@ -32,6 +32,8 @@ public abstract class ImAction {
 
     public abstract void clickMessage(ImModel msg);
 
+    public abstract List<ImModel> loadMessage(String toUser, int offset, ImModel.ConversationType conversationType);
+
     public abstract void sendMessage(ImModel msg, BaseCallback callback);
 
     public abstract List<ImConversation> getConversations();

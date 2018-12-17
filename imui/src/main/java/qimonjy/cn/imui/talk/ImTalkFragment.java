@@ -125,6 +125,10 @@ public abstract class ImTalkFragment extends Fragment implements ImContentAction
         if (contentFragment != null) contentFragment.finishRefresh();
     }
 
+    public final void setRefreshEnable(boolean enable) {
+        if (contentFragment != null) contentFragment.setSpringEnable(enable);
+    }
+
     /***
      * 通知某条消息变化
      * @param uuid

@@ -2,6 +2,7 @@ package zeffect.cn.imimp.ui.talk;
 
 import android.content.Context;
 
+import java.util.List;
 import java.util.Map;
 
 import qimonjy.cn.imui.talk.ImTalkFragment;
@@ -47,10 +48,23 @@ public class ImTalkImpFragment extends ImTalkFragment {
 
     @Override
     protected void loadTalkMessage() {
-        new DoAsync<Void, Void, Void>(getActivity()) {
+        new DoAsync<Void, Boolean, Void>(getActivity()) {
             @Override
             protected Void doInBackground(Context pTarget, Void... voids) throws Exception {
-                return null;// TODO: 2018/12/17 需要实现
+                List<ImModel> msgs = ImImp.getInstance().loadMessage(toUserInfo.getTargetId(), offset, conversationType);
+                if (msgs == null || msgs.isEmpty()) {
+                    publishProgress(false);
+                } else {
+                    offset++;
+                }
+                addMsgsToFront(msgs);
+                return null;
+            }
+
+            @Override
+            protected void onProgressUpdate(Context pTarget, Boolean... values) throws Exception {
+                super.onProgressUpdate(pTarget, values);
+                setRefreshEnable(values[0]);
             }
 
             @Override
