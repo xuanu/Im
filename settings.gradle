@@ -1,1 +1,1 @@
-include ':app', ':imui', ':imbase',"imimp"
+include ':app', ':imui', ':imbase', ':qimonmessage',"imimp"
